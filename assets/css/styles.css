@@ -25,14 +25,21 @@
   --z-fixed: 100;
 }
 
-@media screen and (min-width: 968px) {
-  :root {
-    --big-font-size: 3.5rem;
-    --h2-font-size: 2rem;
-    --normal-font-size: 1rem;
-    --smaller-font-size: .875rem;
+@media (max-width: 768px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .intro h1 {
+    order: 1;
+  }
+  .intro img {
+    order: 2;
+    margin-top: 1rem;
   }
 }
+
 
 /*===== BASE =====*/
 *, ::before, ::after {
@@ -176,60 +183,99 @@ img {
 }
 
 /*===== HOME =====*/
-
 .home {
   position: relative;
   row-gap: 5rem;
   padding: 4rem 0 5rem;
+  display: flex;              /* shto flex për rreshtim horizontal */
+  align-items: flex-start;    /* rreshton në fillim vertikalisht */
+  gap: 3rem;                  /* hapësirë midis shkrimit dhe fotos */
 }
+
 .home__data {
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 14rem;
+  max-width: 800px;
+  margin-top: 5rem; 
 }
+
 .home__title {
   font-size: var(--big-font-size);
   margin-bottom: var(--mb-5);
 }
+
 .home__title-color {
   color: var(--first-color);
 }
+
 .home__social {
   display: flex;
   flex-direction: column;
 }
+
 .home__social-icon {
   width: max-content;
   margin-bottom: var(--mb-2);
   font-size: 1.5rem;
   color: var(--second-color);
 }
+
 .home__social-icon:hover {
   color: var(--first-color);
 }
+
 .home__img {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 260px;
+  width: 5--0px;
+  padding-right: 10rem; /* për ta shtyrë imazhin më në të majtë */
 }
+
 .home__blob {
   fill: var(--second-color);
 }
+
 .home__blob-img {
   width: 360px;
 }
+
 .home__content {
   padding-left: 7rem; /* për ta shtyrë edhe më shumë në të djathtë */
 }
+.home__contacts {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #163a05;
+}
 
-.home__img {
-  padding-right: 7rem; /* për ta shtyrë imazhin më në të majtë */
+.home__contacts a {
+  color: #76c480;
+  text-decoration: none;
+}
+
+.home__contacts a:hover {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
-  .home__content {
-    padding-left: 0; /* që të qendrohet mirë në celular */
+  .home {
+    flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .home__data {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .home__img {
+    width: 200px;  /* më i vogël në celular */
+    margin-top: 2rem; /* hapësirë mbi imazh */
   }
 }
 
@@ -249,37 +295,26 @@ img {
 }
 
 /* ===== ABOUT =====*/
-.small-card {
-  display: flex;
-  max-width: 1000px;  /* madhësia e kornizës */
-  border: 1.5px solid #bbb;
-  border-radius: 10px;
-  padding: 15px;
+
+.about-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  gap: 20px;
-  align-items: center;
-  margin: 0 auto; /* qendër në faqe */
+  box-shadow: 0 8px 12px rgba(1, 88, 19, 0.1);
+  text-align: center;
+}
+.about-content {
+  width: 100%;
 }
 
-.small-card__img img {
-  width: 400px;
-  height: 250px;
+.about-photo {
+  max-width: 130px;
   border-radius: 10px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.small-card__text h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-}
-
-.small-card__text p {
-  margin: 0;
-  line-height: 1.5;
-  font-size: 1rem;
+  display: block;
+  margin: 0 auto;
 }
 
 /* ===== SKILLS =====*/
